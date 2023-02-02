@@ -12,10 +12,9 @@ namespace PoC_Pdf {
             using(Stream input = new FileStream(inputFile, FileMode.Open, FileAccess.Read, FileShare.Read)) {
                 using(Stream output = new FileStream(outputFile, FileMode.Create, FileAccess.Write, FileShare.None)) {
                     var reader = new PdfReader(input);
-                    PdfEncryptor.Encrypt(reader, output, true, null, password, PdfWriter.ALLOW_SCREENREADERS);
+                    PdfEncryptor.Encrypt(reader, output, true, password, password, PdfWriter.ALLOW_PRINTING);
                 }
             }
         }
-
     }
 }
